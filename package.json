@@ -7,6 +7,10 @@
         "email": "jdolitsky@gmail.com"
     },
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jdolitsky/dockerspaniel.git"
+    },
     "preferGlobal": "true",
     "bin": {
         "dockerspaniel": "lib/dockerspaniel.js"
