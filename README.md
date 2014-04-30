@@ -15,7 +15,7 @@ cd dockerspaniel
 npm install -g
 ```
 
-### Create a Spanielfile
+### Create a Spanielfile (JSON)
 
 ```javascript
 {
