@@ -31,61 +31,14 @@ npm install -g
             "instruction": "run",
             "arguments": "apt-get install -y git python-software-properties python g++ make",
             "comment": "install dependencies"
-        },
-        {
-            "instruction": "run",
-            "arguments": "add-apt-repository ppa:chris-lea/node.js"
-        },
-        {
-            "instruction": "run",
-            "arguments": "apt-get update"
-        },
-        {
-            "instruction": "run",
-            "arguments": "apt-get install -y nodejs"
-        },
-        {
-            "instruction": "run",
-            "arguments": "addgroup josh --system && adduser josh --system --ingroup=josh",
-            "newline": true 
-        },
-        {
-            "instruction": "run",
-            "arguments": "mkdir -p /var/app/www && chown -R josh:josh /var/app/www"
-        },
-        {
-            "instruction": "user",
-            "arguments": "josh"
-        },
-        {
-            "instruction": "env",
-            "arguments": "HOME /home/josh"
-        },
-        {
-            "instruction": "workdir",
-            "arguments": "/var/app/www"
-        },
-        {
-            "instruction": "run",
-            "arguments": "git clone https://github.com/heroku/node-js-sample.git ."
-        },
-        {
-            "instruction": "run",
-            "arguments": "npm install"
-        },
-        {
-            "instruction": "expose",
-            "arguments": "5000"
-        },
-        {
-            "instruction": "cmd",
-            "arguments": "npm start"
         }
     ]
 }
 ```
 
 ### Convert the Spanielfile to a Dockerfile
+
+The following command
 
 ```
 cd /dir/with/spanielfile && dockerspaniel
@@ -105,17 +58,6 @@ RUN apt-get update
 
 # install dependencies
 RUN apt-get install -y git python-software-properties python g++ make
-RUN add-apt-repository ppa:chris-lea/node.js
-RUN apt-get update
-RUN apt-get install -y nodejs
-
-RUN addgroup josh --system && adduser josh --system --ingroup=josh
-RUN mkdir -p /var/app/www && chown -R josh:josh /var/app/www
-USER josh
-ENV HOME /home/josh
-WORKDIR /var/app/www
-RUN git clone https://github.com/heroku/node-js-sample.git .
-RUN npm install
-EXPOSE 5000
-CMD npm start
 ```
+
+*please see the 'examples' directoy for a better example*
