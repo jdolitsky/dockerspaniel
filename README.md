@@ -60,4 +60,4 @@ RUN apt-get update
 RUN apt-get install -y git python-software-properties python g++ make
 ```
 
-*please see the 'examples' directoy for a better example*
+*please see the **examples** directoy*
