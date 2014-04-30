@@ -1,0 +1,14 @@
+{
+    "name": "dockerspaniel",
+    "description": "Create Dockerfiles from JSON",
+    "version": "0.1.0",
+    "author": {
+        "name": "Josh Dolitsky",
+        "email": "jdolitsky@gmail.com"
+    },
+    "license": "MIT",
+    "preferGlobal": "true",
+    "bin": {
+        "dockerspaniel": "lib/dockerspaniel.js"
+    }
+}
