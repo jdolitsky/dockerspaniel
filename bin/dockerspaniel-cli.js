@@ -26,7 +26,7 @@ var argv = yargs
 var main = function () {
 
     if (argv.h) {
-        yargs.showHelp();
+        yargs.showHelp(console.log);
         process.exit(0);
     }
     
