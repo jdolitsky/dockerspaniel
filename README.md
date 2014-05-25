@@ -1,9 +1,9 @@
 # DockerSpaniel
-> Create Dockerfiles from JSON
-
 [![NPM version](https://badge.fury.io/js/dockerspaniel.svg)](http://badge.fury.io/js/dockerspaniel) [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel)  [![Coverage Status](https://img.shields.io/coveralls/jdolitsky/dockerspaniel.svg)](https://coveralls.io/r/jdolitsky/dockerspaniel)<br>
-<img alt="docker" src="http://solum.io/img/logo_docker.png" ssrc="http://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png">
-<img alt="cocker spaniel" src="http://www.about-cocker-spaniels.com/images/cocker-spaniel-home4.jpg">
+Create Dockerfiles from JSON
+<br>
+<img alt="docker" src="http://solum.io/img/logo_docker.png"><br>
+<img alt="cocker spaniel" src="http://s11.postimg.org/sjs80e49f/rsz_cocker_spaniel_home4.jpg">
 
 ## Install
 
