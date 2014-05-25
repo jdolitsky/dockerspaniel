@@ -1,9 +1,9 @@
-# DockerSpaniel [![NPM version](https://badge.fury.io/js/dockerspaniel.svg)](http://badge.fury.io/js/dockerspaniel) [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel) [![Coverage Status](https://img.shields.io/coveralls/jdolitsky/dockerspaniel.svg)](https://coveralls.io/r/jdolitsky/dockerspaniel)
+# DockerSpaniel
 > Create Dockerfiles from JSON
 
-![docker](http://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png)
-
-![cocker spaniel](http://upload.wikimedia.org/wikipedia/en/thumb/0/07/Home_cocker_spaniel.jpg/160px-Home_cocker_spaniel.jpg)
+[![NPM version](https://badge.fury.io/js/dockerspaniel.svg)](http://badge.fury.io/js/dockerspaniel) [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel)  [![Coverage Status](https://img.shields.io/coveralls/jdolitsky/dockerspaniel.svg)](https://coveralls.io/r/jdolitsky/dockerspaniel)<br>
+<img alt="docker" src="http://solum.io/img/logo_docker.png" ssrc="http://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png">
+<img alt="cocker spaniel" src="http://www.about-cocker-spaniels.com/images/cocker-spaniel-home4.jpg">
 
 ## Install
 
