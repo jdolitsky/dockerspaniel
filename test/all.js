@@ -78,10 +78,17 @@ describe('dockerspaniel', function() {
 
     })
 
-    var child;
-    var cli = 'node '+dockerspaniel_cli_path;
 
     describe('cli', function() {
+        
+        it('can be required', function() {
+            (function() {
+                var ds_cli = require(dockerspaniel_cli_path);
+            }).should.not.throw ();
+        })
+    
+        var child;
+        var cli = 'node '+dockerspaniel_cli_path;
         
         it('has help screen', function(done) {
             child = exec(cli+' --help', function(err, stdout, stderr) {
