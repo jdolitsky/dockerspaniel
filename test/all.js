@@ -19,6 +19,7 @@ describe('dockerspaniel', function() {
             ds.should.have.property('generateContents');
         })
         
+        
         var spaniel = {
             from: 'ubuntu:12.04',
             maintainer: 'Joe Somebody',
@@ -36,10 +37,19 @@ describe('dockerspaniel', function() {
             ]
         };
 
-        var tags;
+        var tags = [];
+        
+        it('is asynchronous', function(done) {
+            var str = '';
+            ds.generateContents(spaniel, tags, function(err, contents) {
+                str += 'after';
+                str.should.equal('before->after');
+                done();
+            });
+            str += 'before->';
+        })
 
         it('generates contents correctly', function(done) {
-            tags = [];
             ds.generateContents(spaniel, tags, function(err, contents) {
                 should.not.exist(err);
                 should.exists(contents);
