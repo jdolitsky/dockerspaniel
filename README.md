@@ -1,13 +1,11 @@
-DockerSpaniel
-=============
-
-Create Dockerfiles from JSON
+# DockerSpaniel [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel)
+> Create Dockerfiles from JSON
 
 ![docker](http://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png)
 
 ![cocker spaniel](http://upload.wikimedia.org/wikipedia/en/thumb/0/07/Home_cocker_spaniel.jpg/160px-Home_cocker_spaniel.jpg)
 
-### Install
+## Install
 
 ```
 git clone git@github.com:jdolitsky/dockerspaniel.git
@@ -15,7 +13,7 @@ cd dockerspaniel
 npm install -g
 ```
 
-### Create a Spanielfile (JSON)
+## Create a Spanielfile (JSON)
 
 ```javascript
 {
@@ -36,7 +34,7 @@ npm install -g
 }
 ```
 
-### Convert the Spanielfile to a Dockerfile
+## Convert the Spanielfile to a Dockerfile
 
 The following command
 
