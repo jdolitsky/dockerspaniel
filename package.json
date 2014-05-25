@@ -19,8 +19,8 @@
     "yargs": "~1.2.2"
   },
   "devDependencies": {
-    "mocha": "^1.19.0",
-    "should": "^3.3.2"
+    "mocha": "~1.19.0",
+    "should": "~3.3.2"
   },
   "scripts": {
     "test": "mocha ./test --reporter spec"
