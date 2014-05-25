@@ -1,6 +1,4 @@
-var async = require('async');
 var should = require('should');
-
 
 var dockerspaniel_path = '../lib/dockerspaniel.js';
 
