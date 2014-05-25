@@ -1,7 +1,20 @@
 {
+  "version": "0.1.2",
   "name": "dockerspaniel",
   "description": "Create Dockerfiles from JSON",
-  "version": "0.1.1",
+  "keywords": [
+    "docker",
+    "dockerfile",
+    "json",
+    "dockerspaniel",
+    "spaniel",
+    "spanielfile"
+  ],
+  "preferGlobal": true,
+  "config": {
+    "publishtest": false
+  },
+  "homepage": "https://github.com/jdolitsky/dockerspaniel",
   "author": {
     "name": "Josh Dolitsky",
     "email": "jdolitsky@gmail.com"
@@ -11,15 +24,21 @@
     "type": "git",
     "url": "https://github.com/jdolitsky/dockerspaniel.git"
   },
-  "bin": {
-    "dockerspaniel": "lib/dockerspaniel.js"
+  "directories": {
+      "bin": "./bin",
+      "lib": "./lib"
   },
+  "main": "./lib/dockerspaniel.js",
+  "bin": "./bin/dockerspaniel-cli.js",
   "dependencies": {
     "yargs": "~1.2.2"
   },
   "devDependencies": {
     "mocha": "~1.19.0",
     "should": "~3.3.2"
+  },
+  "engines": {
+    "node": ">= 0.6.0"
   },
   "scripts": {
     "test": "mocha ./test --reporter spec"
