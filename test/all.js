@@ -1,10 +1,22 @@
+var fs = require('fs');
 var should = require('should');
-var exec = require('child_process').exec;
 
+var dockerspaniel_defaults_path = __dirname + '/../defaults.json';
 var dockerspaniel_module_path = __dirname + '/../lib/dockerspaniel.js';
 var dockerspaniel_cli_path = __dirname + '/../bin/dockerspaniel-cli.js';
+var tmp = __dirname + '/tmp';
 
 describe('dockerspaniel', function() {
+   
+    var defaults; 
+
+    describe('defaults', function() {
+        it('can be required / is valid JSON', function() {
+            (function() {
+                defaults = require(dockerspaniel_defaults_path);
+            }).should.not.throw ();
+        })
+    })
     
     var ds;
 
@@ -78,27 +90,43 @@ describe('dockerspaniel', function() {
 
     })
 
+    var ds_cli;
 
     describe('cli', function() {
         
         it('can be required', function() {
             (function() {
-                var ds_cli = require(dockerspaniel_cli_path);
+                ds_cli = require(dockerspaniel_cli_path);
             }).should.not.throw ();
         })
-    
-        var child;
-        var cli = 'node '+dockerspaniel_cli_path;
-        
-        it('has help screen', function(done) {
-            child = exec(cli+' --help', function(err, stdout, stderr) {
-                should.not.exist(err);
-                stderr.should.be.empty;
-                stdout.should.not.be.empty;
-                (stdout.indexOf('dockerspaniel ')).should.not.equal(-1);
-                done();
-            });
-        })
 
+        describe('run() method', function() {
+
+            it('returns usage if passed {help: true}', function(done) {
+                ds_cli.run({help:true}, function(result) {
+                    result.code.should.equal(0);
+                    (result.message.indexOf('dockerspaniel ')).should.not.equal(-1);
+                    done();
+                })
+            })
+            
+            it('creates a Dockerfile', function(done) {
+                var options = {
+                    input:  __dirname + '/data/Spanielfile',
+                    output:  tmp + '/Dockerfile' 
+                };
+
+                ds_cli.run(options, function(result) {
+                    result.code.should.equal(0);
+
+                    fs.readFile(options.output, 'utf-8', function (err, data) {
+                        should.not.exist(err);
+                        data.should.not.be.empty;
+                        (data.indexOf('FROM ')).should.not.equal(-1);
+                        done();
+                    });
+                })
+            })
+        })
     })
 })
