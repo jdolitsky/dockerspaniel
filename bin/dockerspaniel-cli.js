@@ -14,6 +14,7 @@ var usage =
     '               Supports mutliple tags via format \'-t tag1 -t tag2\' etc.\n';
 
 
+// the module
 var ds_cli;
 module.exports = ds_cli = {};
 
