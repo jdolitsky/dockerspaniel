@@ -23,7 +23,7 @@ var main = function () {
     
     var options = {
         input: argv.i,
-        output: argv.o || defaults.input_file,
+        output: argv.o || defaults.output_file,
         tags: argv.t,
         base: argv.b
     };
