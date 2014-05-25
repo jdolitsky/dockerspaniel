@@ -1,4 +1,4 @@
-# DockerSpaniel [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel)
+# DockerSpaniel [![NPM version](https://badge.fury.io/js/dockerspaniel.svg)](http://badge.fury.io/js/dockerspaniel) [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel) [![Coverage Status](https://img.shields.io/coveralls/jdolitsky/dockerspaniel.svg)](https://coveralls.io/r/jdolitsky/dockerspaniel)
 > Create Dockerfiles from JSON
 
 ![docker](http://upload.wikimedia.org/wikipedia/commons/7/79/Docker_%28container_engine%29_logo.png)
