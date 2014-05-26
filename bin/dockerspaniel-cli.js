@@ -73,7 +73,7 @@ var handleResult = function(r) {
 
 
 var main = function() {
-    ds_cli(argv, handleResult);
+    ds_cli.run(argv, handleResult);
 };
 
 
