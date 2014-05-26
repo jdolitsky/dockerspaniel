@@ -114,6 +114,31 @@ describe('dockerspaniel', function() {
                 });
             })
             
+            it('generates contents correctly with step.newline', function(done) {
+                tags = null;
+                spaniel.from = 'ubuntu:12.04';
+                spaniel.steps[0].newline = true;
+                ds.generateContents(spaniel, tags, function(err, contents) {
+                    should.not.exist(err);
+                    should.exists(contents);
+                    contents.should.equal('FROM ubuntu:12.04\n\nRUN apt-get update');
+                    done();
+                });
+            })
+            
+            it('generates contents correctly with step.comment', function(done) {
+                tags = null;
+                spaniel.from = 'ubuntu:12.04';
+                delete spaniel.steps[0].newline;
+                spaniel.steps[0].comment = 'my comment';
+                ds.generateContents(spaniel, tags, function(err, contents) {
+                    should.not.exist(err);
+                    should.exists(contents);
+                    contents.should.equal('FROM ubuntu:12.04\n\n# my comment\nRUN apt-get update');
+                    done();
+                });
+            })
+            
         })
         
         describe('createDockerfile() method', function() {
