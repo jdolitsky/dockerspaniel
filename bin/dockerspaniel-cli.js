@@ -14,6 +14,16 @@ var usage =
     '               Supports mutliple tags via format \'-t tag1 -t tag2\' etc.\n';
 
 
+// parse command line options
+var argv = require('yargs')
+    .alias('t','tag')
+    .alias('b','base')
+    .alias('i','input')
+    .alias('o','output')
+    .alias('h','help')
+    .argv;
+
+
 // the module
 var ds_cli;
 module.exports = ds_cli = {};
@@ -56,21 +66,14 @@ ds_cli.run = function (opts, callback) {
 };
 
 
-var main = function () {
+var handleResult = function(r) { 
+    console.log(r.message); 
+    process.exit(r.code);
+};
 
-    // parse command line options
-    var argv = require('yargs')
-        .alias('t','tag')
-        .alias('b','base')
-        .alias('i','input')
-        .alias('o','output')
-        .alias('h','help')
-        .argv;
 
-    ds_cli.run(argv, function(result) {
-        console.log(result.message);
-        process.exit(result.code);
-    });
+var main = function() {
+    ds_cli(argv, handleResult);
 };
 
 

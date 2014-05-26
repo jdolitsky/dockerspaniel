@@ -1,0 +1,9 @@
+INVALID{
+  "from": "ubuntu:12.04",
+  "steps": [
+    {
+      "instruction": "run",
+      "arguments": "apt-get update"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "steps": [
+    {
+      "instruction": "run",
+      "arguments": "apt-get update"
+    }
+  ]
+}
