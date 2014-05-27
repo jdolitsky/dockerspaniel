@@ -139,6 +139,37 @@ describe('dockerspaniel', function() {
                 });
             })
             
+            it('replaces variables correctly', function(done) {
+                tags = null;
+                spaniel.from = 'ubuntu:12.04';
+                delete spaniel.steps[0].comment;
+                spaniel.defaults = {
+                    ds_var_1: 'curl',
+                    ds_var_2: 'wget'
+                };
+                spaniel.steps.push({
+                    instruction: 'run',
+                    arguments: 'apt-get install -y #{ds_var_1} #{ds_var_2}'
+                });
+                ds.generateContents(spaniel, tags, function(err, contents) {
+                    should.not.exist(err);
+                    should.exists(contents);
+                    contents.should.equal('FROM ubuntu:12.04\nRUN apt-get update\nRUN apt-get install -y curl wget');
+                    done();
+                });
+            })
+            
+            it('prefers environment variables over defaults', function(done) {
+                process.env['ds_var_1'] = 'screen';
+                ds.generateContents(spaniel, tags, function(err, contents) {
+                    should.not.exist(err);
+                    should.exists(contents);
+                    contents.should.equal('FROM ubuntu:12.04\nRUN apt-get update\nRUN apt-get install -y screen wget');
+                    delete process.env['ds_var_1'];
+                    done();
+                });
+            })
+            
         })
         
         describe('createDockerfile() method', function() {
