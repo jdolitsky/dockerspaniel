@@ -173,6 +173,10 @@ Base image for subsequent instructions. *Required unless the --base option is us
 
 Author field of generated images.
 
+#### defaults
+
+Key-value pairs to use for variable substitution.
+
 #### steps
 
 Array of step objects. A step object has the following attributes:
