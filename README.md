@@ -8,7 +8,7 @@ Short answer? Continuous delivery.
 
 <a href="https://www.docker.io/">Docker</a> has wide applications in platform engineering. It is particularly useful for creating isolated build environments. Docker images are created from <a href="http://docs.docker.io/reference/builder/">Dockerfiles</a>, which contain various steps. If you are targeting multiple platforms, you may find yourself juggling a bunch of similar Dockerfiles with slight variations.
 
-This tool will help maximize code reuse and enable you to generate unique Dockerfiles on-the-fly based on several features, such as <a href="#tagging">tag-driven step inclusion/exclusion</a>.
+This tool will help maximize code reuse and enable you to generate unique Dockerfiles on-the-fly based on several features, such as <a href="#tagging">tag-driven step inclusion/exclusion</a> and <a href="#variable-substitution">variable substitution</a>.
 
 ## Installation
 
@@ -127,6 +127,41 @@ FROM ubuntu:12.04
 RUN apt-get install -y nodejs
 ```
 
+## Variable Substitution
+
+Variable substitution is supported in step arguments in the format **#{my_var}**
+
+The following Spanielfile has the **defaults** object defined, which defines default values:
+```javascript
+{
+    "from": "ubuntu:12.04",
+    "steps": [
+        {
+            "instruction": "run",
+            "arguments": "apt-get install -y #{dependencies}"
+        }
+    ],
+    "defaults": {
+        "dependencies": "wget curl screen vim"
+    }
+}
+```
+```
+$ dockerspaniel
+...
+
+FROM ubuntu:12.04
+RUN apt-get install -y wget curl screen vim
+```
+Variables can also be overridden by environment variables:
+```
+$ export dependencies="tmux nodejs"
+$ dockerspaniel
+...
+
+FROM ubuntu:12.04
+RUN apt-get install -y tmux nodejs
+```
 
 ## Spanielfile Attributes
 
@@ -212,7 +247,7 @@ var ds = require('dockerspaniel');
 var options = {
     input: '/path/to/json/file.json',
     output: '/path/to/new/Dockerfile',
-    tags:   [
+    tags: [
         'nodejs',
         'no_database'
     ],
