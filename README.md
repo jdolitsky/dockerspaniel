@@ -174,7 +174,7 @@ You are also able to use other Handlebar features, such as the each block helper
         }
     ],
     "defaults": {
-        "dependencies": ["wget", "curl", "screen", vim"]
+        "dependencies": ["wget", "curl", "screen", "vim"]
     }
 }
 ```
