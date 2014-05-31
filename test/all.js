@@ -144,12 +144,12 @@ describe('dockerspaniel', function() {
                 spaniel.from = 'ubuntu:12.04';
                 delete spaniel.steps[0].comment;
                 spaniel.defaults = {
-                    ds_var_1: 'curl',
-                    ds_var_2: 'wget'
+                    var_1: 'curl',
+                    var_2: 'wget'
                 };
                 spaniel.steps.push({
                     instruction: 'run',
-                    arguments: 'apt-get install -y #{ds_var_1} #{ds_var_2}'
+                    arguments: 'apt-get install -y {{var_1}} {{var_2}}'
                 });
                 ds.generateContents(spaniel, tags, function(err, contents) {
                     should.not.exist(err);
@@ -160,12 +160,12 @@ describe('dockerspaniel', function() {
             })
             
             it('prefers environment variables over defaults', function(done) {
-                process.env['ds_var_1'] = 'screen';
+                process.env['DS_VAR_1'] = 'screen';
                 ds.generateContents(spaniel, tags, function(err, contents) {
                     should.not.exist(err);
                     should.exists(contents);
                     contents.should.equal('FROM ubuntu:12.04\nRUN apt-get update\nRUN apt-get install -y screen wget');
-                    delete process.env['ds_var_1'];
+                    delete process.env['DS_VAR_1'];
                     done();
                 });
             })
