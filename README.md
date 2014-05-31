@@ -129,7 +129,7 @@ RUN apt-get install -y nodejs
 
 ## Variable Substitution
 
-Variable substitution is supported in step arguments in the format **#{my_var}**
+Variable substitution is supported via <a href="https://github.com/wycats/handlebars.js">Handlebars</a> in the format **{{my_var}}**.
 
 The following Spanielfile has the **defaults** object defined, which defines default values:
 ```javascript
@@ -138,7 +138,7 @@ The following Spanielfile has the **defaults** object defined, which defines def
     "steps": [
         {
             "instruction": "run",
-            "arguments": "apt-get install -y #{dependencies}"
+            "arguments": "apt-get install -y {{dependencies}}"
         }
     ],
     "defaults": {
@@ -153,14 +153,37 @@ $ dockerspaniel
 FROM ubuntu:12.04
 RUN apt-get install -y wget curl screen vim
 ```
-Variables can also be overridden by environment variables:
+Variables can be overridden by environment variables prefixed with **DS_**:
 ```
-$ export dependencies="tmux nodejs"
+
+$ export DS_DEPENDENCIES="tmux nodejs"
 $ dockerspaniel
 ...
 
 FROM ubuntu:12.04
 RUN apt-get install -y tmux nodejs
+```
+You are also able to use other Handlebar features, such as the each block helper. Notice in the example below that defaults.dependencies is now an array.
+```javascript
+{
+    "from": "ubuntu:12.04",
+    "steps": [
+        {
+            "instruction": "run",
+            "arguments": "apt-get install -y {{#each dependencies}}{{this}} {{/each}}"
+        }
+    ],
+    "defaults": {
+        "dependencies": ["wget", "curl", "screen", vim"]
+    }
+}
+```
+```
+$ dockerspaniel
+...
+
+FROM ubuntu:12.04
+RUN apt-get install -y wget curl screen vim
 ```
 
 ## Spanielfile Attributes
@@ -175,7 +198,7 @@ Author field of generated images.
 
 #### defaults
 
-Key-value pairs to use for variable substitution.
+Key-value pairs to use for Handlebars templating.
 
 #### steps
 
@@ -207,11 +230,11 @@ When true, adds a newline above the step without a comment.
 
 ## Using Programmatically
 
-#### generateContents(json_object, callback)
+#### generateContents(data, callback)
 ```javascript
 var ds = require('dockerspaniel');
 
-var json_object = {
+var data = {
     from: 'ubuntu:12.04',
     maintainer: 'John Smith',
     steps: [
@@ -238,7 +261,7 @@ var json_object = {
 
 var tags = ['nodejs', 'no_database'];
 
-ds.generateContents(json_object, tags, function(err, contents) {
+ds.generateContents(data, tags, function(err, contents) {
     if (err) throw err;
     console.log(contents);
 });
