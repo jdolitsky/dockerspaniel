@@ -228,6 +228,10 @@ Comment placed above the step.
 
 When true, adds a newline above the step without a comment.
 
+##### step.file
+
+Include an external Dockerfile (with optional Handlebars templating). This should be either an absolute path, or a path relative to the Spanielfile. *This causes both step.instruction and step.arguments to be ignored.*
+
 ## Using Programmatically
 
 #### generateContents(data, callback)
