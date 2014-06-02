@@ -2,6 +2,8 @@
 
 var ds = require('../lib/dockerspaniel.js');
 var defaults = require('../defaults.json');
+var utils = require('../lib/utils.js');
+var A = utils.forceAsync;
 
 
 var usage = 
@@ -29,41 +31,39 @@ var ds_cli;
 module.exports = ds_cli = {};
 
 
-ds_cli.run = function (opts, callback) {
-    process.nextTick(function() {
+ds_cli.run = A(function (opts, callback) {
 
-        if (opts.help) {
+    if (opts.help) {
+        callback({
+            message: usage,
+            code: 0
+        });
+        return;
+    }
+    
+    var options = {
+        input: opts.input,
+        output: opts.output || defaults.output_file,
+        tags: opts.tag,
+        base: opts.base
+    };
+
+    ds.createDockerfile(options, function (err) {
+        if (err) {
             callback({
-                message: usage,
-                code: 0
+                message: 'Error creating '+options.output+'.\n'+err,
+                code: 1
             });
             return;
         }
-        
-        var options = {
-            input: opts.input,
-            output: opts.output || defaults.output_file,
-            tags: opts.tag,
-            base: opts.base
-        };
 
-        ds.createDockerfile(options, function (err) {
-            if (err) {
-                callback({
-                    message: 'Error creating '+options.output+'.\n'+err,
-                    code: 1
-                });
-                return;
-            }
-
-            callback({
-                message: 'Successfully created '+options.output+'.',
-                code: 0
-            });
-            return;
+        callback({
+            message: 'Successfully created '+options.output+'.',
+            code: 0
         });
+        return;
     });
-};
+});
 
 
 var handleResult = function(r) { 
