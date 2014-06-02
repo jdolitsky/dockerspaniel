@@ -209,7 +209,7 @@ describe('dockerspaniel', function() {
                 ds.generateContents(spaniel, tags, function(err, contents) {
                     should.not.exist(err);
                     should.exists(contents);
-                    contents.should.equal('FROM ubuntu:12.04\nRUN apt-get update\nRUN apt-get install -y curl wget\n\n# external file\nRUN touch /tmp/file2.json\nRUN rm /tmp/file2.json\nRUN echo \"step 3\"\n\n# external Spanielfile\nFROM undefined\nRUN echo \"this is coming from include\"\nRUN echo \"override from include\"');
+                    contents.should.equal('FROM ubuntu:12.04\nRUN apt-get update\nRUN apt-get install -y curl wget\n\n# external file\nRUN touch /tmp/file2.json\nRUN rm /tmp/file2.json\nRUN echo \"step 3\"\n\n# external Spanielfile\nRUN echo \"this is coming from include\"\nRUN echo \"override from include\"');
                     done();
                 });
             })
