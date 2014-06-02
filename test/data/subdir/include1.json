@@ -1,0 +1,8 @@
+{
+  "steps": [
+    {
+      "instruction": "run",
+      "arguments": "echo \"this is coming from include\""
+    }
+  ]
+}
