@@ -170,6 +170,19 @@ describe('dockerspaniel', function() {
                 });
             })
             
+            it('file attribute supported', function(done) {
+                spaniel.steps.push({
+                    comment: 'external file',
+                    file: 'data/subdir/Dockerfile1'
+                });
+                ds.generateContents(spaniel, tags, function(err, contents) {
+                    should.not.exist(err);
+                    should.exists(contents);
+                    contents.should.equal('FROM ubuntu:12.04\nRUN apt-get update\nRUN apt-get install -y curl wget\n\n# external file\nRUN touch /tmp/file.json\nRUN rm /tmp/file.json');
+                    done();
+                });
+            })
+            
         })
         
         describe('createDockerfile() method', function() {
