@@ -1,0 +1,24 @@
+{
+  "from": "ubuntu:12.04",
+  "steps": [
+    {
+      "instruction": "run",
+      "arguments": "apt-get update"
+    },
+    {
+      "comment": "external file",
+      "file": "subdir/Dockerfile2"
+    },
+    {
+      "comment": "external Spanielfile",
+      "file": "subdir/include1.json"
+    }
+  ],
+  "defaults": {
+    "s": [
+      "RUN touch /tmp/file2.json",
+      "RUN rm /tmp/file2.json"
+    ],
+    "s3": "RUN echo \"step 3\""
+  }
+}
