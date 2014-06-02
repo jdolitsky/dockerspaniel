@@ -227,7 +227,8 @@ describe('dockerspaniel', function() {
                 };
 
                 ds.createDockerfile(options, function(err, contents) {
-                    fs.readFile(options.output, 'utf-8', function (err, data) {
+                    should.not.exist(err);
+                    fs.readFile(options.output, 'utf8', function (err, data) {
                         should.not.exist(err);
                         data.should.not.be.empty;
                         (data.indexOf('FROM ')).should.not.equal(-1);
@@ -238,7 +239,8 @@ describe('dockerspaniel', function() {
             
             it('requires valid JSON', function(done) {
                 options = {
-                    input:  __dirname + '/data/Spanielfile_invalid'
+                    input:  __dirname + '/data/Spanielfile_invalid',
+                    output:  tmp + '/Dockerfile1' 
                 };
 
                 ds.createDockerfile(options, function(err, contents) {
@@ -248,9 +250,25 @@ describe('dockerspaniel', function() {
                 });
             })
             
+            it('supports step.file w/ handlebars', function(done) {
+                options = {
+                    input:  __dirname + '/data/Spanielfile_valid2',
+                    output:  tmp + '/Dockerfile2' 
+                };
+                ds.createDockerfile(options, function(err, contents) {
+                    should.not.exist(err);
+                    fs.readFile(options.output, 'utf8', function (err, data) {
+                        should.not.exist(err);
+                        data.should.equal('FROM ubuntu:12.04\nRUN apt-get update\n\n# external file\nRUN touch /tmp/file2.json\nRUN rm /tmp/file2.json\nRUN echo \"step 3\"');
+                        done();
+                    });
+                });
+            })
+            
             it('requires \'from\'', function(done) {
                 options = {
-                    input:  __dirname + '/data/Spanielfile_no_from'
+                    input:  __dirname + '/data/Spanielfile_no_from',
+                    output:  tmp + '/Dockerfile1' 
                 };
 
                 ds.createDockerfile(options, function(err, contents) {
