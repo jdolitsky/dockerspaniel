@@ -3,6 +3,13 @@
     {
       "instruction": "run",
       "arguments": "echo \"this is coming from include\""
+    },
+    {
+     "instruction": "run",
+     "arguments": "{{s3}}"
     }
-  ]
+  ],
+  "defaults": {
+    "s3": "echo \"override from include\""
+  }
 }
