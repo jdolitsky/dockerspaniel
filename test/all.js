@@ -104,7 +104,7 @@ describe('dockerspaniel', function() {
                 });
             })
             
-            it('requires \'from\'', function(done) {
+            it('requires \'from\' (for parent file)', function(done) {
                 tags = null;
                 delete spaniel.from;
                 ds.generateContents(spaniel, tags, function(err, contents) {
@@ -201,6 +201,19 @@ describe('dockerspaniel', function() {
                 });
             })
             
+            it('step.include attribute supported', function(done) {
+                spaniel.steps.push({
+                    comment: 'external Spanielfile',
+                    include: 'data/subdir/include1.json'
+                });
+                ds.generateContents(spaniel, tags, function(err, contents) {
+                    should.not.exist(err);
+                    should.exists(contents);
+                    contents.should.equal('FROM ubuntu:12.04\nRUN apt-get update\nRUN apt-get install -y curl wget\n\n# external file\nRUN touch /tmp/file2.json\nRUN rm /tmp/file2.json\nRUN echo \"step 3\"\n\n# external Spanielfile\nFROM undefined\nRUN echo \"this is coming from include\"');
+                    done();
+                });
+            })
+            
         })
         
         describe('createDockerfile() method', function() {
@@ -265,7 +278,7 @@ describe('dockerspaniel', function() {
                 });
             })
             
-            it('requires \'from\'', function(done) {
+            it('requires \'from\' (for parent file)', function(done) {
                 options = {
                     input:  __dirname + '/data/Spanielfile_no_from',
                     output:  tmp + '/Dockerfile1' 
