@@ -228,9 +228,13 @@ Comment placed above the step.
 
 When true, adds a newline above the step without a comment.
 
+##### step.include
+
+Include an external Spanielfile. This should be either an absolute path, or a path relative to the parent file. Any defaults defined here will override defaults from the parent (but environment variables will still override these). *This causes both step.instruction and step.arguments to be ignored.*
+
 ##### step.file
 
-Include an external Dockerfile (with optional Handlebars templating). This should be either an absolute path, or a path relative to the Spanielfile. *This causes both step.instruction and step.arguments to be ignored.*
+Include an external Dockerfile (with optional Handlebars templating). This should be either an absolute path, or a path relative to the parent file. *This causes step.include, step.instruction, and step.arguments to be ignored.*
 
 ## Using Programmatically
 
