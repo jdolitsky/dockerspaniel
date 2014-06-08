@@ -186,6 +186,85 @@ FROM ubuntu:12.04
 RUN apt-get install -y wget curl screen vim
 ```
 
+## External Files
+
+If a step contains either the **file** or **include** attribute, step.arguments and step.instuction are ignored.
+
+#### file attribute
+step.file is the path to a raw Dockerfile to include in place, which supports templating.
+
+*Spanielfile*
+```javascript
+{
+    "from": "ubuntu:12.04",
+    "steps": [
+        {
+            "file": "path/to/Dockerfile1",
+            "newline": true
+        }
+    ],
+    "defaults": {
+        "install_jdk": "RUN apt-get install -y openjdk-7-jdk"
+    }
+}
+```
+*path/to/Dockerfile1*
+```
+# Dockerfile1
+RUN apt-get update
+{{install_jdk}}
+```
+*Resulting Dockerfile*
+```
+FROM ubuntu:12.04
+
+# Dockerfile1
+RUN apt-get update
+RUN apt-get install -y openjdk-7-jdk
+```
+
+#### include attribute
+step.include is the path to another Spanielfile to include in place.
+
+*Spanielfile*
+```javascript
+{
+    "from": "ubuntu:12.04",
+    "steps": [
+        {
+            "include": "path/to/add_user.json",
+            "comment": "create new user with sudo access"
+        }
+    ],
+    "defaults": {
+        "username": "paul"
+    }
+}
+```
+*path/to/add_user.json*
+```javascript
+{
+    "steps": [
+        {
+            "instruction": "run",
+            "arguments": "adduser {{username}}"
+        },
+        {
+            "instruction": "run",
+            "arguments": "adduser {{username}} sudo"
+        }
+    ]
+}
+```
+*Resulting Dockerfile*
+```
+FROM ubuntu:12.04
+
+# create new user with sudo access
+RUN adduser paul
+RUN adduser paul sudo
+```
+
 ## Spanielfile Attributes
 
 #### from
@@ -228,9 +307,13 @@ Comment placed above the step.
 
 When true, adds a newline above the step without a comment.
 
+##### step.include
+
+Include an external Spanielfile. This should be either an absolute path, or a path relative to the parent file. Any defaults defined here will override defaults from the parent (but environment variables will still override these). *This causes both step.instruction and step.arguments to be ignored.*
+
 ##### step.file
 
-Include an external Dockerfile (with optional Handlebars templating). This should be either an absolute path, or a path relative to the Spanielfile. *This causes both step.instruction and step.arguments to be ignored.*
+Include an external Dockerfile (with optional Handlebars templating). This should be either an absolute path, or a path relative to the parent file. *This causes step.include, step.instruction, and step.arguments to be ignored.*
 
 ## Using Programmatically
 
