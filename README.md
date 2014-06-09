@@ -285,7 +285,7 @@ Array of step objects. A step object has the following attributes:
 
 ##### step.instruction
 
-Docker instruction. Can be one of the following: *FROM, MAINTAINER, RUN, CMD, EXPOSE, ENV, ADD, ENTRYPOINT, VOLUME, USER, WORKDIR, ONBUILD*
+Docker instruction. All instructions are supported, see the official documentation for a list: https://docs.docker.com/reference/builder
 
 ##### step.arguments
 
