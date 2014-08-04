@@ -1,0 +1,530 @@
+{
+  "name": "dockerspaniel",
+  "version": "0.1.7",
+  "dependencies": {
+    "async": {
+      "version": "0.9.0",
+      "from": "async@~0.9.0"
+    },
+    "habitat": {
+      "version": "1.1.0",
+      "from": "habitat@~1.1.0",
+      "dependencies": {
+        "xtend": {
+          "version": "2.1.2",
+          "from": "xtend@~2.1.1",
+          "dependencies": {
+            "object-keys": {
+              "version": "0.4.0",
+              "from": "object-keys@~0.4.0"
+            }
+          }
+        },
+        "lodash.foreach": {
+          "version": "2.3.0",
+          "from": "lodash.foreach@~2.3.0",
+          "dependencies": {
+            "lodash._basecreatecallback": {
+              "version": "2.3.0",
+              "from": "lodash._basecreatecallback@~2.3.0",
+              "dependencies": {
+                "lodash.bind": {
+                  "version": "2.3.0",
+                  "from": "lodash.bind@~2.3.0",
+                  "dependencies": {
+                    "lodash._createwrapper": {
+                      "version": "2.3.0",
+                      "from": "lodash._createwrapper@~2.3.0",
+                      "dependencies": {
+                        "lodash._basebind": {
+                          "version": "2.3.0",
+                          "from": "lodash._basebind@~2.3.0",
+                          "dependencies": {
+                            "lodash._basecreate": {
+                              "version": "2.3.0",
+                              "from": "lodash._basecreate@~2.3.0",
+                              "dependencies": {
+                                "lodash.noop": {
+                                  "version": "2.3.0",
+                                  "from": "lodash.noop@~2.3.0"
+                                }
+                              }
+                            },
+                            "lodash.isobject": {
+                              "version": "2.3.0",
+                              "from": "lodash.isobject@~2.3.0",
+                              "dependencies": {
+                                "lodash._objecttypes": {
+                                  "version": "2.3.0",
+                                  "from": "lodash._objecttypes@~2.3.0"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "lodash._basecreatewrapper": {
+                          "version": "2.3.0",
+                          "from": "lodash._basecreatewrapper@~2.3.0",
+                          "dependencies": {
+                            "lodash._basecreate": {
+                              "version": "2.3.0",
+                              "from": "lodash._basecreate@~2.3.0",
+                              "dependencies": {
+                                "lodash.noop": {
+                                  "version": "2.3.0",
+                                  "from": "lodash.noop@~2.3.0"
+                                }
+                              }
+                            },
+                            "lodash.isobject": {
+                              "version": "2.3.0",
+                              "from": "lodash.isobject@~2.3.0",
+                              "dependencies": {
+                                "lodash._objecttypes": {
+                                  "version": "2.3.0",
+                                  "from": "lodash._objecttypes@~2.3.0"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "lodash.isfunction": {
+                          "version": "2.3.0",
+                          "from": "lodash.isfunction@~2.3.0"
+                        }
+                      }
+                    },
+                    "lodash._renative": {
+                      "version": "2.3.0",
+                      "from": "lodash._renative@~2.3.0"
+                    },
+                    "lodash._slice": {
+                      "version": "2.3.0",
+                      "from": "lodash._slice@~2.3.0"
+                    }
+                  }
+                },
+                "lodash.identity": {
+                  "version": "2.3.0",
+                  "from": "lodash.identity@~2.3.0"
+                },
+                "lodash._setbinddata": {
+                  "version": "2.3.0",
+                  "from": "lodash._setbinddata@~2.3.0",
+                  "dependencies": {
+                    "lodash.noop": {
+                      "version": "2.3.0",
+                      "from": "lodash.noop@~2.3.0"
+                    },
+                    "lodash._renative": {
+                      "version": "2.3.0",
+                      "from": "lodash._renative@~2.3.0"
+                    }
+                  }
+                },
+                "lodash.support": {
+                  "version": "2.3.0",
+                  "from": "lodash.support@~2.3.0",
+                  "dependencies": {
+                    "lodash._renative": {
+                      "version": "2.3.0",
+                      "from": "lodash._renative@~2.3.0"
+                    }
+                  }
+                }
+              }
+            },
+            "lodash.forown": {
+              "version": "2.3.0",
+              "from": "lodash.forown@~2.3.0",
+              "dependencies": {
+                "lodash.keys": {
+                  "version": "2.3.0",
+                  "from": "lodash.keys@~2.3.0",
+                  "dependencies": {
+                    "lodash.isobject": {
+                      "version": "2.3.0",
+                      "from": "lodash.isobject@~2.3.0"
+                    },
+                    "lodash._renative": {
+                      "version": "2.3.0",
+                      "from": "lodash._renative@~2.3.0"
+                    },
+                    "lodash._shimkeys": {
+                      "version": "2.3.0",
+                      "from": "lodash._shimkeys@~2.3.0"
+                    }
+                  }
+                },
+                "lodash._objecttypes": {
+                  "version": "2.3.0",
+                  "from": "lodash._objecttypes@~2.3.0"
+                }
+              }
+            }
+          }
+        },
+        "lodash.reduce": {
+          "version": "2.3.0",
+          "from": "lodash.reduce@~2.3.0",
+          "dependencies": {
+            "lodash.createcallback": {
+              "version": "2.3.0",
+              "from": "lodash.createcallback@~2.3.0",
+              "dependencies": {
+                "lodash._basecreatecallback": {
+                  "version": "2.3.0",
+                  "from": "lodash._basecreatecallback@~2.3.0",
+                  "dependencies": {
+                    "lodash.bind": {
+                      "version": "2.3.0",
+                      "from": "lodash.bind@~2.3.0",
+                      "dependencies": {
+                        "lodash._createwrapper": {
+                          "version": "2.3.0",
+                          "from": "lodash._createwrapper@~2.3.0",
+                          "dependencies": {
+                            "lodash._basebind": {
+                              "version": "2.3.0",
+                              "from": "lodash._basebind@~2.3.0",
+                              "dependencies": {
+                                "lodash._basecreate": {
+                                  "version": "2.3.0",
+                                  "from": "lodash._basecreate@~2.3.0",
+                                  "dependencies": {
+                                    "lodash.noop": {
+                                      "version": "2.3.0",
+                                      "from": "lodash.noop@~2.3.0"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "lodash._basecreatewrapper": {
+                              "version": "2.3.0",
+                              "from": "lodash._basecreatewrapper@~2.3.0",
+                              "dependencies": {
+                                "lodash._basecreate": {
+                                  "version": "2.3.0",
+                                  "from": "lodash._basecreate@~2.3.0",
+                                  "dependencies": {
+                                    "lodash.noop": {
+                                      "version": "2.3.0",
+                                      "from": "lodash.noop@~2.3.0"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "lodash.isfunction": {
+                              "version": "2.3.0",
+                              "from": "lodash.isfunction@~2.3.0"
+                            }
+                          }
+                        },
+                        "lodash._renative": {
+                          "version": "2.3.0",
+                          "from": "lodash._renative@~2.3.0"
+                        },
+                        "lodash._slice": {
+                          "version": "2.3.0",
+                          "from": "lodash._slice@~2.3.0"
+                        }
+                      }
+                    },
+                    "lodash.identity": {
+                      "version": "2.3.0",
+                      "from": "lodash.identity@~2.3.0"
+                    },
+                    "lodash._setbinddata": {
+                      "version": "2.3.0",
+                      "from": "lodash._setbinddata@~2.3.0",
+                      "dependencies": {
+                        "lodash.noop": {
+                          "version": "2.3.0",
+                          "from": "lodash.noop@~2.3.0"
+                        },
+                        "lodash._renative": {
+                          "version": "2.3.0",
+                          "from": "lodash._renative@~2.3.0"
+                        }
+                      }
+                    },
+                    "lodash.support": {
+                      "version": "2.3.0",
+                      "from": "lodash.support@~2.3.0",
+                      "dependencies": {
+                        "lodash._renative": {
+                          "version": "2.3.0",
+                          "from": "lodash._renative@~2.3.0"
+                        }
+                      }
+                    }
+                  }
+                },
+                "lodash._baseisequal": {
+                  "version": "2.3.0",
+                  "from": "lodash._baseisequal@~2.3.0",
+                  "dependencies": {
+                    "lodash.forin": {
+                      "version": "2.3.0",
+                      "from": "lodash.forin@~2.3.0"
+                    },
+                    "lodash._getarray": {
+                      "version": "2.3.0",
+                      "from": "lodash._getarray@~2.3.0",
+                      "dependencies": {
+                        "lodash._arraypool": {
+                          "version": "2.3.0",
+                          "from": "lodash._arraypool@~2.3.0"
+                        }
+                      }
+                    },
+                    "lodash.isfunction": {
+                      "version": "2.3.0",
+                      "from": "lodash.isfunction@~2.3.0"
+                    },
+                    "lodash._objecttypes": {
+                      "version": "2.3.0",
+                      "from": "lodash._objecttypes@~2.3.0"
+                    },
+                    "lodash._releasearray": {
+                      "version": "2.3.0",
+                      "from": "lodash._releasearray@~2.3.0",
+                      "dependencies": {
+                        "lodash._arraypool": {
+                          "version": "2.3.0",
+                          "from": "lodash._arraypool@~2.3.0"
+                        },
+                        "lodash._maxpoolsize": {
+                          "version": "2.3.0",
+                          "from": "lodash._maxpoolsize@~2.3.0"
+                        }
+                      }
+                    }
+                  }
+                },
+                "lodash.isobject": {
+                  "version": "2.3.0",
+                  "from": "lodash.isobject@~2.3.0",
+                  "dependencies": {
+                    "lodash._objecttypes": {
+                      "version": "2.3.0",
+                      "from": "lodash._objecttypes@~2.3.0"
+                    }
+                  }
+                },
+                "lodash.keys": {
+                  "version": "2.3.0",
+                  "from": "lodash.keys@~2.3.0",
+                  "dependencies": {
+                    "lodash._renative": {
+                      "version": "2.3.0",
+                      "from": "lodash._renative@~2.3.0"
+                    },
+                    "lodash._shimkeys": {
+                      "version": "2.3.0",
+                      "from": "lodash._shimkeys@~2.3.0",
+                      "dependencies": {
+                        "lodash._objecttypes": {
+                          "version": "2.3.0",
+                          "from": "lodash._objecttypes@~2.3.0"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "lodash.forown": {
+              "version": "2.3.0",
+              "from": "lodash.forown@~2.3.0",
+              "dependencies": {
+                "lodash._basecreatecallback": {
+                  "version": "2.3.0",
+                  "from": "lodash._basecreatecallback@~2.3.0",
+                  "dependencies": {
+                    "lodash.bind": {
+                      "version": "2.3.0",
+                      "from": "lodash.bind@~2.3.0",
+                      "dependencies": {
+                        "lodash._createwrapper": {
+                          "version": "2.3.0",
+                          "from": "lodash._createwrapper@~2.3.0",
+                          "dependencies": {
+                            "lodash._basebind": {
+                              "version": "2.3.0",
+                              "from": "lodash._basebind@~2.3.0",
+                              "dependencies": {
+                                "lodash._basecreate": {
+                                  "version": "2.3.0",
+                                  "from": "lodash._basecreate@~2.3.0",
+                                  "dependencies": {
+                                    "lodash.noop": {
+                                      "version": "2.3.0",
+                                      "from": "lodash.noop@~2.3.0"
+                                    }
+                                  }
+                                },
+                                "lodash.isobject": {
+                                  "version": "2.3.0",
+                                  "from": "lodash.isobject@~2.3.0"
+                                }
+                              }
+                            },
+                            "lodash._basecreatewrapper": {
+                              "version": "2.3.0",
+                              "from": "lodash._basecreatewrapper@~2.3.0",
+                              "dependencies": {
+                                "lodash._basecreate": {
+                                  "version": "2.3.0",
+                                  "from": "lodash._basecreate@~2.3.0",
+                                  "dependencies": {
+                                    "lodash.noop": {
+                                      "version": "2.3.0",
+                                      "from": "lodash.noop@~2.3.0"
+                                    }
+                                  }
+                                },
+                                "lodash.isobject": {
+                                  "version": "2.3.0",
+                                  "from": "lodash.isobject@~2.3.0"
+                                }
+                              }
+                            },
+                            "lodash.isfunction": {
+                              "version": "2.3.0",
+                              "from": "lodash.isfunction@~2.3.0"
+                            }
+                          }
+                        },
+                        "lodash._renative": {
+                          "version": "2.3.0",
+                          "from": "lodash._renative@~2.3.0"
+                        },
+                        "lodash._slice": {
+                          "version": "2.3.0",
+                          "from": "lodash._slice@~2.3.0"
+                        }
+                      }
+                    },
+                    "lodash.identity": {
+                      "version": "2.3.0",
+                      "from": "lodash.identity@~2.3.0"
+                    },
+                    "lodash._setbinddata": {
+                      "version": "2.3.0",
+                      "from": "lodash._setbinddata@~2.3.0",
+                      "dependencies": {
+                        "lodash.noop": {
+                          "version": "2.3.0",
+                          "from": "lodash.noop@~2.3.0"
+                        },
+                        "lodash._renative": {
+                          "version": "2.3.0",
+                          "from": "lodash._renative@~2.3.0"
+                        }
+                      }
+                    },
+                    "lodash.support": {
+                      "version": "2.3.0",
+                      "from": "lodash.support@~2.3.0",
+                      "dependencies": {
+                        "lodash._renative": {
+                          "version": "2.3.0",
+                          "from": "lodash._renative@~2.3.0"
+                        }
+                      }
+                    }
+                  }
+                },
+                "lodash.keys": {
+                  "version": "2.3.0",
+                  "from": "lodash.keys@~2.3.0",
+                  "dependencies": {
+                    "lodash.isobject": {
+                      "version": "2.3.0",
+                      "from": "lodash.isobject@~2.3.0"
+                    },
+                    "lodash._renative": {
+                      "version": "2.3.0",
+                      "from": "lodash._renative@~2.3.0"
+                    },
+                    "lodash._shimkeys": {
+                      "version": "2.3.0",
+                      "from": "lodash._shimkeys@~2.3.0"
+                    }
+                  }
+                },
+                "lodash._objecttypes": {
+                  "version": "2.3.0",
+                  "from": "lodash._objecttypes@~2.3.0"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "handlebars": {
+      "version": "2.0.0-alpha.4",
+      "from": "handlebars@~2.0.0-alpha.4",
+      "dependencies": {
+        "optimist": {
+          "version": "0.3.7",
+          "from": "optimist@~0.3",
+          "dependencies": {
+            "wordwrap": {
+              "version": "0.0.2",
+              "from": "wordwrap@~0.0.2"
+            }
+          }
+        },
+        "uglify-js": {
+          "version": "2.3.6",
+          "from": "uglify-js@~2.3",
+          "dependencies": {
+            "async": {
+              "version": "0.2.10",
+              "from": "async@~0.2.6"
+            },
+            "source-map": {
+              "version": "0.1.38",
+              "from": "source-map@~0.1.7",
+              "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.1.38.tgz",
+              "dependencies": {
+                "amdefine": {
+                  "version": "0.1.0",
+                  "from": "amdefine@>=0.0.4"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "mkdirp": {
+      "version": "0.5.0",
+      "from": "mkdirp@~0.5.0",
+      "dependencies": {
+        "minimist": {
+          "version": "0.0.8",
+          "from": "minimist@0.0.8",
+          "resolved": "https://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz"
+        }
+      }
+    },
+    "yargs": {
+      "version": "1.2.6",
+      "from": "yargs@~1.2.2",
+      "resolved": "https://registry.npmjs.org/yargs/-/yargs-1.2.6.tgz",
+      "dependencies": {
+        "minimist": {
+          "version": "0.1.0",
+          "from": "minimist@^0.1.0",
+          "resolved": "https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz"
+        }
+      }
+    }
+  }
+}
