@@ -66,7 +66,7 @@ describe('dockerspaniel', function() {
                 ds.generateContents(spaniel, tags, function(err, contents) {
                     should.not.exist(err);
                     should.exists(contents);
-                    contents.should.equal('FROM uubuntu:12.04\nMAINTAINER Joe Somebody\nRUN apt-get update');
+                    contents.should.equal('FROM ubuntu:12.04\nMAINTAINER Joe Somebody\nRUN apt-get update');
                     done();
                 });
             })
