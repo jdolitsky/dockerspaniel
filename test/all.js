@@ -40,12 +40,22 @@ describe('dockerspaniel', function() {
                     {
                         instruction: 'run',
                         arguments: 'apt-get update',
-                        unless: ['noupdate']
+                        unless_one: ['noupdate', 'echo_a']
                     },
                     {
                         instruction: 'run',
                         arguments: 'apt-get install -y nodejs',
-                        only: ['nodejs']
+                        only_one: ['nodejs', 'echo_a']
+                    },
+                    {
+                        instruction: 'run',
+                        arguments: 'echo testing unless',
+                        unless: ['echo_a', 'echo_b']
+                    },
+                    {
+                        instruction: 'run',
+                        arguments: 'echo testing only',
+                        only: ['echo_a', 'echo_b']
                     }
                 ]
             };
@@ -66,22 +76,36 @@ describe('dockerspaniel', function() {
                 ds.generateContents(spaniel, tags, function(err, contents) {
                     should.not.exist(err);
                     should.exists(contents);
-                    contents.should.equal('FROM ubuntu:12.04\nMAINTAINER Joe Somebody\nRUN apt-get update');
+                    contents.should.equal('FROM ubuntu:12.04\nMAINTAINER Joe Somebody\nRUN apt-get update\nRUN echo testing unless');
                     done();
                 });
             })
             
-            it('generates contents correctly with tags', function(done) {
+            it('generates contents correctly with tags (unless_one, only_one)', function(done) {
                 tags = ['noupdate', 'nodejs'];
                 ds.generateContents(spaniel, tags, function(err, contents) {
                     should.not.exist(err);
                     should.exists(contents);
-                    contents.should.equal('FROM ubuntu:12.04\nMAINTAINER Joe Somebody\nRUN apt-get install -y nodejs');
+                    contents.should.equal('FROM ubuntu:12.04\nMAINTAINER Joe Somebody\nRUN apt-get install -y nodejs\nRUN echo testing unless');
                     done();
                 });
             })
             
+            it('generates contents correctly with tags (unless, only)', function(done) {
+                tags = ['noupdate', 'nodejs', 'echo_a', 'echo_b'];
+                ds.generateContents(spaniel, tags, function(err, contents) {
+                    should.not.exist(err);
+                    should.exists(contents);
+                    contents.should.equal('FROM ubuntu:12.04\nMAINTAINER Joe Somebody\nRUN apt-get install -y nodejs\nRUN echo testing only');
+                    done();
+                });
+            })
+
             it('accepts single tag as string', function(done) {
+
+                // done testing only/unless tag stuff, remove last 2 steps
+                spaniel.steps.splice(-2,2)
+            
                 tags = 'nodejs';
                 ds.generateContents(spaniel, tags, function(err, contents) {
                     should.not.exist(err);
