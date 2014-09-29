@@ -1,5 +1,5 @@
-<a href="https://www.docker.io/"><img alt="docker" src="http://s29.postimg.org/fa9lzifqv/rsz_logo_docker.png"></a><br>
-<a href="http://www.about-cocker-spaniels.com/"><img alt="cocker spaniel" src="http://s11.postimg.org/sjs80e49f/rsz_cocker_spaniel_home4.jpg"></a><br>
+<a href="https://www.docker.io/" target="_blank"><img alt="docker" src="http://s29.postimg.org/fa9lzifqv/rsz_logo_docker.png"></a><br>
+<a href="http://www.about-cocker-spaniels.com/" target="_blank"><img alt="cocker spaniel" src="http://s11.postimg.org/sjs80e49f/rsz_cocker_spaniel_home4.jpg"></a><br>
 
 [![NPM version](https://badge.fury.io/js/dockerspaniel.svg)](http://badge.fury.io/js/dockerspaniel) [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel)  [![Coverage Status](https://img.shields.io/coveralls/jdolitsky/dockerspaniel.svg)](https://coveralls.io/r/jdolitsky/dockerspaniel)
 
@@ -291,13 +291,25 @@ Docker instruction. All instructions are supported, see the official documentati
 
 Arguments to pass to Docker instruction. For the step *RUN apt-get update*, *RUN* is the instruction and *apt-get update* is the arguments.
 
+##### step.unless_one
+
+Array of tags that, when ONE is provided, will cause this step to be excluded.
+<br>See <a href="http://en.wikipedia.org/wiki/NOR_gate" target="_blank">NOR gates</a>.
+
 ##### step.unless
 
-Array of tags that, when provided, will cause this step to be excluded.
+Array of tags that, when ALL are provided, will cause this step to be excluded.
+<br>See <a href="http://en.wikipedia.org/wiki/NAND_gate" target="_blank">NAND gates</a>.
+
+##### step.only_one
+
+Array of tags that, when ONE is provided, will cause this step to be included.
+<br>See <a href="http://en.wikipedia.org/wiki/OR_gate" target="_blank">OR gates</a>.
 
 ##### step.only
 
-Array of tags that, only when provided, will cause this step to be included.
+Array of tags that, when ALL are provided, will cause this step to be included.
+<br>See <a href="http://en.wikipedia.org/wiki/AND_gate" target="_blank">AND gates</a>.
 
 ##### step.comment
 
