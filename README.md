@@ -71,7 +71,7 @@ RUN apt-get install -y nodejs
 
 ## Tagging
 
-The step attributes <a href="#stepunless_one">unless_one</a>, <a href="#stepunless">unless</a>, <a href="#steponly_one">only_one</a>, and <a href="#steponly">only</a> will allow you to include or exclude steps based on provided tags.
+The step attributes <a href="#stepunless_one">**unless_one**</a>, <a href="#stepunless">**unless**</a>, <a href="#steponly_one">**only_one**</a>, and <a href="#steponly">**only**</a> will allow you to include or exclude steps based on provided tags.
 ```javascript
 {
     "from": "ubuntu:12.04",
