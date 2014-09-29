@@ -71,7 +71,7 @@ RUN apt-get install -y nodejs
 
 ## Tagging
 
-The step attributes **only** and **unless** will allow you to include or exclude steps based on provided tags.
+The step attributes **unless_one**, **unless**, **only_one**, and **only** will allow you to include or exclude steps based on provided tags.
 ```javascript
 {
     "from": "ubuntu:12.04",
@@ -79,14 +79,14 @@ The step attributes **only** and **unless** will allow you to include or exclude
         {
             "instruction": "run",
             "arguments": "apt-get update",
-            "unless": [
+            "unless_one": [
                 "no_update"
             ]
         },
         {
             "instruction": "run",
             "arguments": "apt-get install -y nodejs",
-            "only": [
+            "only_one": [
                 "nodejs"
             ]
         }
@@ -95,7 +95,7 @@ The step attributes **only** and **unless** will allow you to include or exclude
 ```
 From the above Spanielfile, many different Dockerfiles can be created.
 #### (no tags)
-Includes all steps without an **only** array.
+Includes all steps without an **only** or **only_one** array.
 ```
 $ dockerspaniel
 . . .
@@ -103,14 +103,14 @@ FROM ubuntu:12.04
 RUN apt-get update
 ```
 #### no_update
-Prevents update step because 'no_update' is present in the step's **unless** array.
+Prevents update step because 'no_update' is present in the step's **unless_one** array.
 ```
 $ dockerspaniel -t no_update
 . . .
 FROM ubuntu:12.04
 ```
 #### nodejs
-Includes nodejs install step because 'nodejs' is present in the step's **only** array.
+Includes nodejs install step because 'nodejs' is present in the step's **only_one** array.
 ```
 $ dockerspaniel -t nodejs
 . . .
@@ -229,11 +229,11 @@ step.include is the path to another Spanielfile to include in place.
 *Spanielfile*
 ```javascript
 {
-    "from": "ubuntu:12.04",
+    "from": "fedora:20",
     "steps": [
         {
             "include": "path/to/add_user.json",
-            "comment": "create new user with sudo access"
+            "comment": "create new user"
         }
     ],
     "defaults": {
@@ -248,21 +248,16 @@ step.include is the path to another Spanielfile to include in place.
         {
             "instruction": "run",
             "arguments": "adduser {{username}}"
-        },
-        {
-            "instruction": "run",
-            "arguments": "adduser {{username}} sudo"
         }
     ]
 }
 ```
 *Resulting Dockerfile*
 ```
-FROM ubuntu:12.04
+FROM fedora:20
 
 # create new user with sudo access
 RUN adduser paul
-RUN adduser paul sudo
 ```
 
 ## Spanielfile Attributes
