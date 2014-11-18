@@ -3,8 +3,6 @@
 
 [![NPM version](https://badge.fury.io/js/dockerspaniel.svg)](http://badge.fury.io/js/dockerspaniel) [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel)  [![Coverage Status](https://img.shields.io/coveralls/jdolitsky/dockerspaniel.svg)](https://coveralls.io/r/jdolitsky/dockerspaniel)
 
-[ ![Codeship Status for jdolitsky/dockerspaniel](https://www.codeship.io/projects/b8859e00-37e2-0132-96d5-02255209da1c/status)](https://www.codeship.io/projects/41839)
-
 ## Why would anyone ever use this?
 Short answer? Continuous delivery.
 
