@@ -3,8 +3,12 @@
 
 [![NPM version](https://badge.fury.io/js/dockerspaniel.svg)](http://badge.fury.io/js/dockerspaniel) [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel)  [![Coverage Status](https://img.shields.io/coveralls/jdolitsky/dockerspaniel.svg)](https://coveralls.io/r/jdolitsky/dockerspaniel)
 
+*Check out this demo which makes use of dockerspaniel to create a Node.js build environment on 5 different distros:*
+<a href="https://github.com/jdolitsky/dockerspaniel-demo">https://github.com/jdolitsky/dockerspaniel-demo</a>
+
+
 ## Why would anyone ever use this?
-Short answer? Continuous delivery.
+Short answer? Continuous integration.
 
 <a href="https://www.docker.io/">Docker</a> has wide applications in platform engineering. It is particularly useful for creating isolated build environments. Docker images are created from <a href="http://docs.docker.io/reference/builder/">Dockerfiles</a>, which contain various steps. If you are targeting multiple platforms, you may find yourself juggling a bunch of similar Dockerfiles with slight variations.
 
