@@ -1,5 +1,5 @@
 <a href="https://www.docker.io/" target="_blank"><img alt="docker" src="http://s29.postimg.org/fa9lzifqv/rsz_logo_docker.png"></a><br>
-<a href="http://www.about-cocker-spaniels.com/" target="_blank"><img alt="cocker spaniel" src="http://s11.postimg.org/sjs80e49f/rsz_cocker_spaniel_home4.jpg"></a><br>
+<a href="https://en.wikipedia.org/wiki/Cocker_Spaniel" target="_blank"><img alt="cocker spaniel" src="http://s11.postimg.org/sjs80e49f/rsz_cocker_spaniel_home4.jpg"></a><br>
 
 [![NPM version](https://badge.fury.io/js/dockerspaniel.svg)](http://badge.fury.io/js/dockerspaniel) [![Build Status](https://travis-ci.org/jdolitsky/dockerspaniel.svg?branch=master)](https://travis-ci.org/jdolitsky/dockerspaniel)  [![Coverage Status](https://img.shields.io/coveralls/jdolitsky/dockerspaniel.svg)](https://coveralls.io/r/jdolitsky/dockerspaniel)
 
